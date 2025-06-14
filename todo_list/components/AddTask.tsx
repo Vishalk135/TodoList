@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import {baseURL} from '../pages/utlis/constant'
+import {baseURL} from '../pages/utils/constant'
 
 const AddTask: React.FC = () => {
   const router = useRouter();

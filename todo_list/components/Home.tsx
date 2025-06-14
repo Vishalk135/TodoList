@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
-import {baseURL} from '../pages/utlis/constant'
+import {baseURL} from '../pages/utils/constant'
 
 interface Task {
   _id: string;
