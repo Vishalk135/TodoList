@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
-import { baseURL } from '../pages/utils/constant';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/tasks';
 
 interface Task {
   _id: string;
@@ -21,7 +21,7 @@ const Home: React.FC = () => {
   const router = useRouter();
 
   const fetchTasks = async () => {
-    const res = await fetch(baseURL);
+    const res = await fetch(API_URL);
     const data = await res.json();
     setTasks(data);
   };
@@ -31,7 +31,7 @@ const Home: React.FC = () => {
   }, []);
 
   const deleteTask = async (id: string) => {
-    await fetch(`${baseURL}/${id}`, { method: 'DELETE' });
+    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${id}`, { method: 'DELETE' });
     fetchTasks();
   };
 
@@ -46,7 +46,7 @@ const Home: React.FC = () => {
   };
 
   const handleEditSubmit = async (id: string) => {
-    await fetch(`${baseURL}/${id}`, {
+    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(editForm),

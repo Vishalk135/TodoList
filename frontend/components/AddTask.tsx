@@ -1,7 +1,8 @@
 'use client';
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { baseURL } from '../pages/utils/constant';
+//import { baseURL } from '../pages/utils/constant';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/tasks';
 
 const AddTask: React.FC = () => {
   const router = useRouter();
@@ -28,7 +29,7 @@ const AddTask: React.FC = () => {
       return;
     }
 
-    await fetch(baseURL, {
+    await fetch(API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(task),
