@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 4000;
 
 // Middleware
 app.use(cors({
-  origin: ["http://localhost:4000"]
+  origin: ["http://localhost:4000", "https://todo-list-full-stack-project.netlify.app"]
 }));
 app.use(bodyParser.json());
 
