@@ -16,7 +16,7 @@ app.use(cors({
 }));
 app.use(bodyParser.json());
 
-// Routes
+// Route
 app.use('/tasks', taskRoutes);
 app.get('/', (_req, res) => {
   res.send('To-Do List API is running!');
