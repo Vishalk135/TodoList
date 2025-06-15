@@ -8,11 +8,11 @@ import taskRoutes from './routes/taskRoute';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.NEXT_PUBLIC_API_URL || 4000;
 
 // Middleware
 app.use(cors({
-  origin: "https://todo-list-full-stack-project.netlify.app"
+  origin: ["https://todo-list-full-stack-project.netlify.app","http://localhost:4000"]
 }));
 app.use(bodyParser.json());
 
